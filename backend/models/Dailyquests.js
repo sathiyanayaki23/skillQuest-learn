@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const dailyQuestSchema = new mongoose.Schema({
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     questId: { type: mongoose.Schema.Types.ObjectId, ref: 'Quest', required: true },

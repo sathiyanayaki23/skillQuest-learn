@@ -7,6 +7,9 @@ const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
 const badgeRoutes = require("./routes/badges");
 const progressRoutes = require("./routes/progress");
+const notificationsRoutes = require("./routes/notifications");
+const dailyquestRoutes = require("./routes/dailyquests")
+
 // Import Passport configuration
 require("./config/passport");
 
@@ -37,6 +40,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/badges", badgeRoutes);
 app.use("/api/progress", progressRoutes);
+app.use("/api/notifications",notificationsRoutes);
+app.use("/api/dailyquests", dailyquestRoutes);
 // Start Server
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

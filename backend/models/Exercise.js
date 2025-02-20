@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const ExerciseSchema = new mongoose.Schema({
-    lessonId: { type: mongoose.Schema.Types.ObjectId, ref: 'Lesson', required: true }, // Connects to Lesson
+    lessonId: { type: mongoose.Schema.Types.ObjectId, ref: 'Lesson', required: true }, 
     title: { type: String, required: true },
     type: { 
         type: String, 
