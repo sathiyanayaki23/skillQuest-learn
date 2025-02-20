@@ -4,13 +4,16 @@ const session = require("express-session");
 const passport = require("passport");
 const cors = require("cors");
 const authRoutes = require("./routes/auth");
-
+const userRoutes = require("./routes/user");
+const badgeRoutes = require("./routes/badges");
+const progressRoutes = require("./routes/progress");
 // Import Passport configuration
 require("./config/passport");
 
-const app = express();
 
 // Middleware
+
+const app = express();
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use(
@@ -31,7 +34,9 @@ mongoose
 
 // Routes
 app.use("/api/auth", authRoutes);
-
+app.use("/api/user", userRoutes);
+app.use("/api/badges", badgeRoutes);
+app.use("/api/progress", progressRoutes);
 // Start Server
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
