@@ -1,3 +1,4 @@
+// routes/badges.js
 const express = require("express");
 const Badge = require("../models/Badges");
 
