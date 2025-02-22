@@ -1,10 +1,11 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const UserProgressSchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-  courseId: { type: mongoose.Schema.Types.ObjectId, ref: "Course" },
-  status: { type: String, enum: ["not_started", "in_progress", "completed"], default: "not_started" },
-});
+const userProgressSchema = new mongoose.Schema({
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    completedLessons: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Lesson' }],
+    completedChallenges: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Challenge' }],
+    xpEarned: { type: Number, default: 0, index: true }, // Index for leaderboard ranking
+    badges: [{ type: String }], // Stores badge names as strings
+}, { timestamps: true });
 
-module.exports = mongoose.model("UserProgress", UserProgressSchema);
-
+module.exports = mongoose.model('UserProgress', userProgressSchema);

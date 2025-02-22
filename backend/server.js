@@ -9,10 +9,6 @@ require("./config/passport"); // Import Passport configuration
 // Import Routes
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
-const badgeRoutes = require("./routes/badges");
-const progressRoutes = require("./routes/progress");
-const notificationsRoutes = require("./routes/notifications");
-const dailyquestRoutes = require("./routes/dailyquests");
 
 // Initialize Express App
 const app = express();
@@ -41,11 +37,6 @@ mongoose
 // Define Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
-app.use("/api/badges", badgeRoutes);
-app.use("/api/progress", progressRoutes);
-app.use("/api/notifications", notificationsRoutes);
-app.use("/api/dailyquests", dailyquestRoutes);
-
 // Error Handling Middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);

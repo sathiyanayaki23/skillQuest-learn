@@ -63,3 +63,6 @@ router.get("/user", async (req, res) => {
         return res.status(401).json({ message: "Unauthorized: Invalid token" });
     }
 });
+module.exports = router;
+
+
